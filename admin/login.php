@@ -3,10 +3,7 @@ $file=dirname(__FILE__).'/../save/config.php';if(file_exists($file)){include_onc
 include_once dirname(__FILE__).'/lib/validate/validate.php';
 $action=filter_input(INPUT_GET, 'action');session_start();
 switch ($action){ 
-   case  "validate":  //验证码
-      $_vc = new ValidateCode();		
-      $_SESSION['authnum_session'] = $_vc->getCode();
-      break;
+
    case  "logout":    //退出登录  
       if(!empty($_SESSION['hashstr'])){unset($_SESSION['hashstr']);unset($_SESSION['username']);}  
       ShowMsg('注销登录成功！',"./");
