@@ -11,7 +11,7 @@ switch ($action){
       
    default : //登录 
        if(!filter_has_var(INPUT_POST, 'username') || !filter_has_var(INPUT_POST, 'password')){ ShowMsg('用户和密码没填写完整!','-1'); exit(); } 
-       if(strtolower(filter_input(INPUT_POST, 'validate'))!==strtolower($_SESSION['authnum_session'])){ ShowMsg('验证码错误!','-1'); exit(); } 
+
        $username = htmlspecialchars(filter_input(INPUT_POST, 'username'));  
        $password = MD5(filter_input(INPUT_POST, 'password')); 
        $user=isset($CONFIG["user"])?$CONFIG["user"]:"admin";
